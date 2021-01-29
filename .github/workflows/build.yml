@@ -26,9 +26,10 @@ jobs:
       - name: Create esy wrapper
         run: |
           echo '{
-            "name": "build-conf-libsodium",
+            "name": "build-sodium",
             "dependencies": {
-              "@opam/conf-libsodium": "*"
+              "@opam/conf-libsodium": "*",
+              "@opam/sodium": "*"
             },
             "resolutions": {
               "@opam/conf-libsodium": {
@@ -37,6 +38,15 @@ jobs:
                   "dependencies": {
                     "esy-libsodium": "github:EduardoRFS/esy-libsodium#'"${GITHUB_SHA}"'"
                   }
+                }
+              },
+              "@opam/sodium": {
+                "source": "github:dsheets/ocaml-sodium:opam#1f064fa90cd02c44e2dcc0708d4ba3a256a9c1f2",
+                "override": {
+                  "build": [
+                    ["make", "CFLAGS=\"-I$SODIUM_INCLUDE_PATH -L$SODIUM_LIB_PATH\"", "-j4"]
+                  ],
+                  "install": "make PREFIX=$cur__install install"
                 }
               }
             }
