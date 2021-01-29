@@ -40,7 +40,7 @@ jobs:
                   }
                 }
               },
-              "@opam/sodium": "github:EduardoRFS/ocaml-sodium:sodium.json#424966a203aace0640c98b499001daeb8f1577d2"
+              "@opam/sodium": "github:EduardoRFS/ocaml-sodium:sodium.json#2d1e2b9b6bc7d92fd27925a0c7795a78d15121cc"
             }
           }' > build.json
 
