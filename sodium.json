@@ -4,6 +4,9 @@
     "build": [
       ["make", "CFLAGS=\"-I$SODIUM_INCLUDE_PATH -L$SODIUM_LIB_PATH\"", "-j4"]
     ],
-    "install": "make PREFIX=$cur__install install"
+    "install": "make PREFIX=$cur__install install",
+    "dependencies": {
+      "@opam/conf-libsodium": "*"
+    }
   }
 }
